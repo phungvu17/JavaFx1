@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TelePhone">
+   <children>
+      <TextField fx:id="tdtName" layoutX="26.0" layoutY="29.0" promptText="Name" />
+      <TextField fx:id="tdtTelephone" layoutX="26.0" layoutY="90.0" promptText="Telephone" />
+      <Button layoutX="172.0" layoutY="153.0" mnemonicParsing="false" onAction="#submit" text="submit" />
+      <Text fx:id="tdtInfo" layoutX="387.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="155.951171875">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <ListView fx:id="lv" layoutX="326.0" layoutY="68.0" onMouseClicked="#edit" prefHeight="200.0" prefWidth="200.0" />
+      <Button layoutX="448.0" layoutY="298.0" mnemonicParsing="false" onAction="#sout" text="sout" />
+   </children>
+</Pane>
