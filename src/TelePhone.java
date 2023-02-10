@@ -1,26 +1,34 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
-public class TelePhone {
+import java.net.URL;
+import java.util.*;
+
+public class TelePhone implements Initializable {
 
     public TextField tdtName;
 
     public TextField tdtTelephone;
+    public static TextField stName ;
+
+    public static TextField stTelephone;
 
     public Text tdtInfo;
 
     public ObservableList<Phone> ListPhone = FXCollections.observableArrayList();
-    public ListView<Phone> lv;
-    public Phone EditPhone;
+
+    public static Phone EditPhone;
+    public TableView<Phone> tbview;
+    public TableColumn<Phone,String> cName;
+    public TableColumn<Phone,String> cTelephone;
+    public TableColumn<Phone, Button> cAction;
+
     public void submit(ActionEvent actionEvent) {
         String na = tdtName.getText();
         String ph = tdtTelephone.getText();
@@ -37,8 +45,8 @@ public class TelePhone {
                 }
             }
         }
-        lv.setItems(ListPhone);
-        lv.refresh();
+        tbview.setItems(ListPhone);
+        tbview.refresh();
         EditPhone = null;
         clearInput();
 
@@ -54,7 +62,7 @@ public class TelePhone {
 
 
     public void edit(MouseEvent mouseEvent) {
-        EditPhone = lv.getSelectionModel().getSelectedItem();
+       // EditPhone = lv.getSelectionModel().getSelectedItem();
         tdtName.setText(EditPhone.getName());
         tdtTelephone.setText(EditPhone.getTelephone());
 
@@ -76,5 +84,15 @@ public class TelePhone {
 
 
 
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        cName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        cTelephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
+        cAction.setCellValueFactory(new PropertyValueFactory<>("edit"));
+
+        stTelephone = tdtTelephone;
+        stName = tdtName;
     }
 }

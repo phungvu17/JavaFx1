@@ -15,7 +15,13 @@
             <Font size="28.0" />
          </font>
       </Text>
-      <ListView fx:id="lv" layoutX="326.0" layoutY="68.0" onMouseClicked="#edit" prefHeight="200.0" prefWidth="200.0" />
       <Button layoutX="448.0" layoutY="298.0" mnemonicParsing="false" onAction="#sout" text="sout" />
+      <TableView fx:id="tbview" layoutX="262.0" layoutY="59.0" prefHeight="227.0" prefWidth="326.0">
+        <columns>
+          <TableColumn fx:id="cName" prefWidth="100.0" text="Name" />
+          <TableColumn fx:id="cTelephone" prefWidth="117.0" text="Telephone" />
+            <TableColumn fx:id="cAction" prefWidth="108.0" text="Action" />
+        </columns>
+      </TableView>
    </children>
 </Pane>
